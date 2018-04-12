@@ -1,0 +1,35 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    padding-top: 120px;
+    margin-bottom: 100px; /* Margin bottom by footer height */
+}
+
+.footer {
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer div {
+    height: 99px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-hr {
+    margin: 0;
+}
+
+h1 {
+    text-shadow: 5px 5px 7px #959595;
+}
+
+.main {
+    margin-bottom: 200px;
+}
