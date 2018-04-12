@@ -23,7 +23,7 @@
                             <small class="text-muted"><?php echo some_time_ago(); ?></small>
                         </div>                      
                         <div class="mt-4">
-                            <a href="<?php the_permalink(); ?>" class="btn btn-outline-info btn-sm">Read More &raquo;</a>
+                            <a href="<?php the_permalink(); ?>" class="btn btn-outline-primary btn-sm">Read More &raquo;</a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
 
         </div>
         <div class="col-sm-3">
-            <h3>Sidebar</h3>
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>

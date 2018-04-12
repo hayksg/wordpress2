@@ -13,13 +13,21 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+    
 }
 
 .footer div {
-    height: 99px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%; /* Для переноса на следующую строку второго div -a */
+    flex-wrap: wrap; /* Для переноса на следующую строку второго div -a */
+}
+
+.footer:after {
+  content:'';
+  width:100%;
+  order:0;
 }
 
 .footer-hr {
@@ -33,3 +41,54 @@ h1 {
 .main {
     margin-bottom: 200px;
 }
+
+#categories-3 ul, #archives-3 ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* calendar widget */
+#wp-calendar { text-align: center }
+#wp-calendar { width: 100%; }
+#wp-calendar caption { color: #333; font-size: 12px; margin-top: 10px; margin-bottom: 15px; }
+#wp-calendar thead { font-size: 10px; }
+#wp-calendar thead th { padding-bottom: 10px; }
+#wp-calendar tbody { color: #aaa; }
+#wp-calendar tbody td { background: #f5f5f5; border: 1px solid #fff; text-align: center; padding:4px;}
+#wp-calendar tbody td:hover { background: #fff; }
+#wp-calendar tbody .pad { background: none; }
+#wp-calendar tfoot #next { font-size: 10px; text-transform: uppercase; text-align: right; }
+#wp-calendar tfoot #prev { font-size: 10px; text-transform: uppercase; padding-top: 10px; }
+
+@media (max-width: 1200px) {
+    #wp-calendar tbody td { padding:2px;}
+}
+
+@media (max-width: 992px) {
+    ul.pagination { margin-bottom:50px !important;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

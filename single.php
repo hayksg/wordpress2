@@ -23,10 +23,14 @@
 
                 <?php endwhile; ?>
             <?php endif; ?>
+            
+            <hr>
+            
+            <?php comments_template(); ?>
 
         </div>
         <div class="col-sm-3">
-            <h3>Sidebar</h3>
+            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>

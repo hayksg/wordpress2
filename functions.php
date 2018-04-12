@@ -9,7 +9,7 @@ add_theme_support( 'post-thumbnails' );
 include( get_template_directory() . '/includes/class-wp-bootstrap-navwalker.php' );
 include( get_template_directory() . '/includes/some-time-ago.php' );
 
-// Action and Filter Hooks
+// Action Hooks
 
 function tu_enqueue() {
     wp_register_style( 'tu-bootstrap-min-css', 'https://stackpath.bootstrapcdn.com/bootswatch/4.1.0/lux/bootstrap.min.css' );
@@ -34,6 +34,23 @@ function tu_setup() {
     register_nav_menu( 'topNavMenu', 'Top Nav Menu' );
 }
 add_action( 'after_setup_theme', 'tu_setup' );
+
+function tu_sidebar() {
+    register_sidebar( array(
+        'name'          => __( 'Sidebar for blog', 'blog' ),
+	    'id'            => 'tu_sidebar',
+	    'description'   => __( 'Sidebar for the theme Blog', 'blog' ),
+        'class'         => '',
+        'before_widget' => '<div id="%1$s" class="card mb-4 %2$s">',
+	    'after_widget'  => '</div></div>',
+	    'before_title'  => '<h5 class="card-header">',
+	    'after_title'   => '</h5><div class="card-body">'
+        
+    ) );
+}
+add_action( 'widgets_init', 'tu_sidebar' );
+
+// Filter Hooks
 
 function searchFilter($query) {
    // If 's' request variable is set but empty

@@ -1,9 +1,14 @@
+<?php 
+/*
+ * Template Name: Full width template
+ */
+?>
 <?php get_header(); ?>
       
 <div class="container main">
 
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             
             <?php if ( have_posts() ) : ?>
                 <?php while ( have_posts() ) : the_post(); ?>
@@ -19,9 +24,6 @@
                 <?php endwhile; ?>
             <?php endif; ?>
 
-        </div>
-        <div class="col-sm-3">
-            <?php get_sidebar(); ?>
         </div>
     </div>
 </div>
