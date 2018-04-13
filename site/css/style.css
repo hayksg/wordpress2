@@ -42,7 +42,7 @@ h1 {
     margin-bottom: 200px;
 }
 
-#categories-3 ul, #archives-3 ul {
+#categories-3 ul, #archives-3 ul, #custom_html-2 ul {
     list-style: none;
     padding-left: 0;
 }
@@ -68,7 +68,49 @@ h1 {
     ul.pagination { margin-bottom:50px !important;}
 }
 
+.facebook-link {
+    background: #3C5A99;
+    color: #fff;
+    padding: 5px 10px;
+}
 
+.facebook-link:hover {
+    background: #fff;
+    color: #3C5A99;
+}
+
+.twitter-link {
+    background: #79C2F5;
+    color: #fff;
+    padding: 5px 7px;
+}
+
+.twitter-link:hover {
+    background: #fff;
+    color: #79C2F5;
+}
+
+.youtube-link {
+    background: #FF0000;
+    color: #fff;
+    padding: 5px 7px;
+}
+
+.youtube-link:hover {
+    background: #fff;
+    color: #FF0000;
+}
+
+.google-plus-link {
+    background: #DC4B3E;
+    color: #fff;
+    padding: 5px 4px;
+}
+
+.google-plus-link:hover {
+    background: #fff;
+    color: #DC4B3E;
+}
 
 
 

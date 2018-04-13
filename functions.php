@@ -8,14 +8,19 @@ add_theme_support( 'post-thumbnails' );
 // Includes
 include( get_template_directory() . '/includes/class-wp-bootstrap-navwalker.php' );
 include( get_template_directory() . '/includes/some-time-ago.php' );
+include( get_template_directory() . '/includes/options-page.php' );
+include( get_template_directory() . '/includes/admin/init.php' );
+include( get_template_directory() . '/process/save-options.php' );
 
 // Action Hooks
 
 function tu_enqueue() {
     wp_register_style( 'tu-bootstrap-min-css', 'https://stackpath.bootstrapcdn.com/bootswatch/4.1.0/lux/bootstrap.min.css' );
+    wp_register_style( 'font-awesome-min-css', 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
     wp_register_style( 'tu-style-css',         get_template_directory_uri() . '/site/css/style.css' );
     
     wp_enqueue_style( 'tu-bootstrap-min-css' );
+    wp_enqueue_style( 'font-awesome-min-css' );
     wp_enqueue_style( 'tu-style-css' );
     
     wp_register_script( 'tu-popper-min-js',    'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js', array(), false, true );
@@ -49,6 +54,43 @@ function tu_sidebar() {
     ) );
 }
 add_action( 'widgets_init', 'tu_sidebar' );
+
+function tu_activate() {
+    if ( version_compare( bloginfo( 'version' ), '<', '4.2' ) ) {
+        wp_die( 'You must have a mnimum version of 4.2 to use this theme', 'blog' );
+    }
+    
+    $theme_opts = get_option( 'tu_opts' );
+    
+    if ( ! $theme_opts ) {
+        $opts = array(
+            'favicon'     => '',
+            'facebook'    => '',
+            'youtube'     => '',
+            'twitter'     => '',
+            'google-plus' => '',
+            'logo-type'   => 1,
+            'logo-image'  => '',
+            'footer'      => '',
+        );
+        
+        add_option( 'tu_opts', $opts );
+    }
+}
+add_action( 'after_switch_theme', 'tu_activate' );
+
+function tu_admin_menus() {
+    add_menu_page(
+        __( 'Blog theme options', 'blog' ),
+        __( 'Theme options', 'blog' ),
+        'edit_theme_options',
+        'tu_theme_options',
+        'tu_theme_options_page'
+    );
+}
+add_action( 'admin_menu', 'tu_admin_menus' );
+
+add_action( 'admin_init', 'tu_admin_init' );
 
 // Filter Hooks
 
